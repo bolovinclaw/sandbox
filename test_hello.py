@@ -1,9 +1,15 @@
+import unittest
+
 from hello import greet
 
 
-def test_greet_named():
-    assert greet("world") == "hello, world"
+class TestGreet(unittest.TestCase):
+    def test_named(self):
+        self.assertEqual(greet("world"), "hello, world")
+
+    def test_sandbox(self):
+        self.assertEqual(greet("sandbox"), "hello, sandbox")
 
 
-def test_greet_sandbox():
-    assert greet("sandbox") == "hello, sandbox"
+if __name__ == "__main__":
+    unittest.main()
